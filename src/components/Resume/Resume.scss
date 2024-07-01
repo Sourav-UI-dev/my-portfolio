@@ -1,0 +1,152 @@
+.resume-container {
+
+    background: linear-gradient(45deg, #000, #434343);
+
+    .section {
+        padding: 60px 0;
+        overflow: clip;
+    }
+
+    .resume {
+        color: white;
+
+        .section-title {
+            padding-bottom: 60px;
+            position: relative;
+            margin-bottom: 20px;
+
+            h2 {
+                font-size: 14px;
+                font-weight: 500;
+                padding: 0;
+                line-height: 1px;
+                margin: 0 0 20px 0;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #aaaaaa;
+                font-family: "Poppins", sans-serif;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    width: 120px;
+                    height: 1px;
+                    display: inline-block;
+                    background: #ff6b8b;
+                    margin: 4px 10px;
+                }
+
+                &::after {
+                    right: -60px;
+                }
+            }
+
+            p {
+                margin-bottom: 0;
+            }
+
+            span {
+                margin: -15px 0 15px 0;
+                font-size: 36px;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-family: "Poppins", sans-serif;
+                color: #fff;
+            }
+
+        }
+
+        .btn-downloadCV {
+            background: linear-gradient(45deg, #ff6b8b, #ff8e53);
+            border: none;
+            height: 50px;
+            padding: 0px 24px;
+            color: #fff;
+            transition: 0.3s;
+
+            &:hover {
+                background: #ff6b8b;
+            }
+        }
+
+        .resume-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .resume-item {
+            margin-bottom: 2rem;
+            padding: 0 0 20px 20px;
+            margin-top: -2px;
+            border-left: 2px solid #666;
+            position: relative;
+
+            h4 {
+                line-height: 18px;
+                font-size: 18px;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-family: "Poppins", sans-serif;
+                color: #ff6b8b;
+                margin-bottom: 10px;
+            }
+
+            h5 {
+                font-size: 16px;
+                background: rgba(255, 255, 255, 0.15);
+                padding: 5px 15px;
+                display: inline-block;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            em {
+                font-style: italic;
+                color: #fff;
+            }
+
+            ul {
+                list-style: none;
+                padding-left: 20px;
+
+                li {
+                    padding-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+
+                    &::before {
+                        content: "•";
+                        color: #ff8e53;
+                        display: inline-block;
+                        width: 1em;
+                        margin-left: -1em;
+                    }
+                }
+            }
+
+            p {
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+
+            .pb-0 {
+                padding-bottom: 0;
+            }
+        }
+
+        .resume-item::before {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50px;
+            left: -9px;
+            top: 0;
+            background: #ff6b8b;
+            border: 2px solid #ff6b8b;
+        }
+    }
+}
