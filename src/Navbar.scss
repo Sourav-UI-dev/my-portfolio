@@ -1,0 +1,94 @@
+/* Add this to your custom stylesheet */
+.header {
+    color: red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0 15px;
+    transition: all ease-in-out 0.3s;
+    overflow-y: auto;
+    z-index: 997;
+    min-width: 200px;
+}
+
+.navmenu {
+    align-self: start;
+    padding: 0;
+    z-index: 9997;
+    /* Aligns to the start (top) of the flex container */
+}
+
+.navmenu .nav-link:hover,
+.navmenu .active,
+.navmenu .active:focus,
+.navmenu li:hover>a {
+    color: var(--contrast-color);
+    background: var(--nav-hover-color);
+}
+
+.navmenu .nav-link:hover,
+.navmenu li:hover>a {
+    max-width: 100%;
+}
+
+.nav-link {
+    padding: 10px 18px;
+    /* Padding */
+    text-decoration: none;
+    /* No underline */
+    font-size: 25px;
+    /* Increase font size */
+    height: 56px;
+    width: 100%;
+    border-radius: 50px;
+    /* Font color */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s;
+
+    /* Make it a block element to fill the whole space */
+    span {
+        display: none;
+    }
+}
+
+.navmenu .nav-link,
+.navmenu a:focus {
+    color: var(--nav-color);
+    font-family: var(--nav-font);
+    display: flex;
+    align-items: center;
+    padding: 10px 18px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    border-radius: 50px;
+    background:
+        color-mix(in srgb, var(--default-color), transparent 92%);
+    height: 56px;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+
+/* Active class styling */
+.active {
+    background-color: #666;
+}
+
+@media (max-width: 768px) {
+    .header {
+        width: auto;
+        left: auto;
+        right: 0px;
+        /* Hide sidebar off-screen */
+        top: 0;
+        transition: right 0.3s;
+        /* Smooth transition for opening/closing */
+        z-index: 1000;
+        height: auto;
+        justify-content: flex-end;
+    }
+}

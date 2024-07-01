@@ -1,0 +1,70 @@
+// styles/themes.scss
+
+$primary-color: #ff6b8b; // Define the primary color
+$primary-color-light: lighten($primary-color, 10%); // Lighten the primary color
+
+$secondary-color: #ff8e53; // Define the secondary color
+$secondary-color-light: lighten($secondary-color, 10%); // Lighten the secondary color
+
+$gradient-primary: linear-gradient(45deg, #ff6b8b, #ff8e53);
+$gradient-secondary: linear-gradient(45deg, #2193b0, #6dd5ed);
+
+$gradient-primary: linear-gradient(45deg, $primary-color, $secondary-color);
+$gradient-primary-light: linear-gradient(45deg, $primary-color-light, $secondary-color-light);
+
+// Mixin for applying gradient to borders
+@mixin gradient-border($gradient) {
+    border-image: $gradient 1;
+}
+
+// Mixin for applying gradient as background
+@mixin gradient-bg($gradient) {
+    background: $gradient;
+}
+
+.gradient-button {
+    @include gradient-bg($gradient-primary);
+    // Other button styles...
+}
+
+.gradient-border-box {
+    @include gradient-border($gradient-secondary);
+    // Other border box styles...
+}
+
+.dark-theme {
+    background-color: #000; // Solid dark background for the theme
+
+    &__gradient-border {
+        border: 3px solid transparent;
+        border-image: $gradient-primary 1;
+    }
+
+    &__gradient-button {
+        background: $gradient-primary-light;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background: $gradient-primary;
+        }
+    }  
+
+    // Add more gradient styles for other elements as needed
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: $primary-color;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover{
+    color: $secondary-color;
+}
