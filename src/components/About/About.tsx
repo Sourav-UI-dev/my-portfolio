@@ -7,7 +7,6 @@ import { RiTeamLine } from 'react-icons/ri';
 
 const About: React.FC = () => {
 
-
     const stats = [
         { icon: <BiSmile />, end: 5, label: 'Happy Clients' },
         { icon: <PiSuitcaseSimple />, end: 6, label: 'Projects' },
@@ -78,7 +77,7 @@ const About: React.FC = () => {
                 <div className="container">
                     <div className="row gy-4 justify-content-center">
                         <div className="col-lg-4">
-                            <img src="assets/img/profile-img.jpeg" className="img-fluid" alt="Profile" />
+                            <img src="assets/img/profile-img.jpg" className="img-fluid" alt="Profile" />
                         </div>
                         <div className="col-lg-8 content">
                             <h2>UI/UX Designer &amp; Web Developer.</h2>

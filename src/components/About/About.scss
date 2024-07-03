@@ -5,6 +5,7 @@
 
     .about {
         color: white;
+        padding-bottom: 0px !important;
 
         .section-title {
             padding-bottom: 60px;
@@ -266,5 +267,9 @@
     .section {
         padding: 60px 0;
         overflow: clip;
+    }
+
+    :before{
+        display: none;
     }
 }
