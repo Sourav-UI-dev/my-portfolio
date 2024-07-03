@@ -1,10 +1,55 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Contact.scss';
+import emailjs from '@emailjs/browser';
 import { BiLogoWhatsapp, BiLogoGmail, BiLogoInstagram, BiLogoLinkedin, BiPhoneCall } from 'react-icons/bi';
 import { RiTwitterXLine, RiMapPinLine } from 'react-icons/ri';
 import { TbSocial } from 'react-icons/tb';
+import { Col, Form, Spinner } from 'react-bootstrap';
+
+const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+
 
 const Contact: React.FC = () => {
+    const [formValue, setFormValue] = useState<any>({});
+    const [validated, setValidated] = useState(false);
+    const [status, setStatus] = useState('');
+    const [loading, setLoader] = useState(false);
+
+    const handleOnSubmit = (event: any) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setStatus('');
+        const form = event.currentTarget;
+        if (form.checkValidity() === true) {
+            setLoader(true);
+            console.log("formSubmitted", formValue);
+            emailjs
+                .sendForm(serviceId || '', templateId || '', form, {
+                    publicKey: publicKey,
+                })
+                .then(
+                    () => {
+                        setLoader(false);
+                        setStatus('success');
+                    },
+                    (error) => {
+                        console.log('Error while sending message', error);
+                        setLoader(false);
+                        setStatus('error');
+                    },
+                );
+        }
+        setValidated(true);
+    }
+
+    const handleChange = (e: any) => {
+        const formobj: any = { ...formValue };
+        formobj[e.target.name] = e.target.value;
+        setFormValue(formobj);
+    }
 
     return (
         <div className='contact-container'>
@@ -55,47 +100,106 @@ const Contact: React.FC = () => {
                         </div>
 
                         <div className="col-lg-8">
-                            <form
-                                action="forms/contact.php"
-                                method="post"
+                            <Form
+                                noValidate validated={validated} onSubmit={handleOnSubmit}
                                 className={'contact-email-form'}
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                             >
                                 <div className="row gy-4">
-                                    <div className="col-md-6">
-                                        <input type="text" name="name" className="form-control" placeholder="Your Name" required />
-                                    </div>
-
-                                    <div className="col-md-6">
-                                        <input type="email" className="form-control" name="email" placeholder="Your Email" required />
-                                    </div>
-
-                                    <div className="col-md-6">
-                                        <input type="phone" name="phone" className="form-control" placeholder="Your Phone Number" required />
-                                    </div>
-
-                                    <div className="col-md-6">
-                                        <input type="text" className="form-control" name="address" placeholder="Your Address" required />
-                                    </div>
-
-                                    <div className="col-md-12">
-                                        <input type="text" className="form-control" name="subject" placeholder="Subject" required />
-                                    </div>
-
-                                    <div className="col-md-12">
-                                        <textarea className="form-control" name="message" rows={6} placeholder="Message" required></textarea>
-                                    </div>
+                                    <Form.Group as={Col} md="6" controlId="validationCustom01">
+                                        <Form.Control
+                                            required
+                                            type="text"
+                                            placeholder="Your Name"
+                                            className='form-control'
+                                            name="user_name"
+                                            value={formValue?.user_name}
+                                            onChange={handleChange}
+                                        />
+                                        <Form.Control.Feedback type='valid'>Looks good!</Form.Control.Feedback>
+                                        <Form.Control.Feedback type='invalid'>Please Enter Name!</Form.Control.Feedback>
+                                    </Form.Group>
+                                    <Form.Group as={Col} md="6" controlId="validationCustom02">
+                                        <Form.Control
+                                            required
+                                            type="email"
+                                            placeholder="Your Email"
+                                            className='form-control'
+                                            name="user_email"
+                                            value={formValue?.user_email}
+                                            onChange={handleChange}
+                                        />
+                                        <Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
+                                        <Form.Control.Feedback type='invalid'>Please Enter Valid Email!</Form.Control.Feedback>
+                                    </Form.Group>
+                                    <Form.Group as={Col} md="6" controlId="validationCustom03">
+                                        <Form.Control
+                                            required
+                                            type="tel"
+                                            placeholder="Your Phone Number"
+                                            className='form-control'
+                                            name="user_phone"
+                                            value={formValue?.user_phone}
+                                            onChange={handleChange}
+                                        />
+                                        <Form.Control.Feedback type='valid'>Looks good!</Form.Control.Feedback>
+                                        <Form.Control.Feedback type='invalid'>Please Enter Valid Phone!</Form.Control.Feedback>
+                                    </Form.Group>
+                                    <Form.Group as={Col} md="6" controlId="validationCustom04">
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Your Address"
+                                            className='form-control'
+                                            name="user_address"
+                                            value={formValue?.user_address}
+                                            onChange={handleChange}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group as={Col} md="12" controlId="validationCustom05">
+                                        <Form.Control
+                                            required
+                                            type="text"
+                                            placeholder="Your Subject"
+                                            className='form-control'
+                                            name="user_subject"
+                                            value={formValue?.user_subject}
+                                            onChange={handleChange}
+                                        />
+                                        <Form.Control.Feedback type='valid'>Looks good!</Form.Control.Feedback>
+                                        <Form.Control.Feedback type='invalid'>Please Enter Subject!</Form.Control.Feedback>
+                                    </Form.Group>
+                                    <Form.Group as={Col} md="12" controlId="validationCustom06">
+                                        <Form.Control
+                                            required
+                                            as="textarea"
+                                            rows={6}
+                                            placeholder="Your Message"
+                                            className='form-control'
+                                            name="user_message"
+                                            value={formValue?.user_message}
+                                            onChange={handleChange}
+                                        />
+                                        <Form.Control.Feedback type='valid'>Looks good!</Form.Control.Feedback>
+                                        <Form.Control.Feedback type='invalid'>Please Enter Message!</Form.Control.Feedback>
+                                    </Form.Group>
 
                                     <div className="col-md-12 text-center">
-                                        <div className="loading">Loading</div>
-                                        <div className="error-message"></div>
-                                        <div className="sent-message">Your message has been sent. Thank you!</div>
+                                        {!loading && status === 'error' && <div className="error-message">Something went wrong! Please try again later.</div>}
+                                        {!loading && status === 'success' && <div className="sent-message">Your message has been sent. Thank you!</div>}
+                                        
+                                        {loading && <button disabled><Spinner
+                                            as="span"
+                                            animation="grow"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />Sending...</button>}
 
-                                        <button type="submit">Send Message</button>
+                                        {!loading && <button type="submit">Send Message</button>}
                                     </div>
                                 </div>
-                            </form>
+                            </Form>
                         </div>
                     </div>
                 </div>
