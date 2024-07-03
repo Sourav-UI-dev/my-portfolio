@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="col-lg-8">
+                        <div className="col-lg-8" style={{ zIndex: 10}}>
                             <Form
                                 noValidate validated={validated} onSubmit={handleOnSubmit}
                                 className={'contact-email-form'}
