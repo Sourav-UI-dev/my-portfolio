@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Contact.scss';
 import emailjs from '@emailjs/browser';
 import { BiLogoWhatsapp, BiLogoGmail, BiLogoInstagram, BiLogoLinkedin, BiPhoneCall } from 'react-icons/bi';
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
                             <div className={`info-item`} data-aos="fade-up" data-aos-delay="300">
                                 <span><BiPhoneCall /></span>
                                 <div>
-                                    <h3>Call Us</h3>
+                                    <h3>Call Me</h3>
                                     <p><a href="tel:+917602313900">+91 7602313900</a></p>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
                             <div className={`info-item`} data-aos="fade-up" data-aos-delay="400">
                                 <span><BiLogoGmail /></span>
                                 <div>
-                                    <h3>Email Us</h3>
+                                    <h3>Email Me</h3>
                                     <p><a href="mailto:ghoshsourav237@gamil.com">ghoshsourav237@gamil.com</a></p>
                                 </div>
                             </div>
