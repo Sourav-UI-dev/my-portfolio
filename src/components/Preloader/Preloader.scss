@@ -1,27 +1,85 @@
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.preloader-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #fff;
-    z-index: 9999;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+    /* Optional: background color for better visibility */
+}
 
-    .spinner {
-        width: 50px;
-        height: 50px;
-        border: 5px solid rgba(0, 0, 0, 0.1);
-        border-top-color: #007bff;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
+.letters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    animation: moveInLetters 2s forwards;
+}
+
+.letter {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff6b8b;
+}
+
+.letter-s {
+    transform: translateX(-100vw);
+    animation: moveInS 2s forwards;
+}
+
+.letter-g {
+    transform: translateX(100vw);
+    animation: moveInG 2s forwards;
+}
+
+.spinner {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite, grow 2s forwards;
+    animation-delay: 2s;
+}
+
+@keyframes moveInS {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInG {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInLetters {
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes grow {
+    0% {
+        border-top-color: transparent;
+        /* Initially transparent */
+        width: 0;
+        height: 0;
     }
 
-    @keyframes spin {
-        to {
-            transform: rotate(360deg);
-        }
+    100% {
+        border-top-color:#ff8e53;
+        width: 120px;
+        height: 120px;
     }
 }

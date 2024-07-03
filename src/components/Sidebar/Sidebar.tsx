@@ -28,17 +28,17 @@ const Sidebar: React.FC = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleScroll = () => {
-        const sections = navItems.map(item => document.getElementById(item.id));
-        const scrollPosition = window.scrollY + window.innerHeight / 2;
+    // const handleScroll = () => {
+    //     const sections = navItems.map(item => document.getElementById(item.id));
+    //     const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-        for (const section of sections) {
-            if (section && section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
-                setActive(section.id);
-                break;
-            }
-        }
-    };
+    //     for (const section of sections) {
+    //         if (section && section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+    //             setActive(section.id);
+    //             break;
+    //         }
+    //     }
+    // };
 
     useEffect(() => {
         const currentPath = location.pathname.substring(1);
@@ -46,12 +46,12 @@ const Sidebar: React.FC = () => {
         if (activeItem) {
             setActive(activeItem.id);
         }
-    }, [location.pathname]);
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // useEffect(() => {
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => window.removeEventListener('scroll', handleScroll);
+    // }, []);
 
     return (
         <>
@@ -59,8 +59,8 @@ const Sidebar: React.FC = () => {
                 <BiMenu />
             </Button>
 
-            <Nav className="flex-column sidebar d-lg-flex navmenu" defaultActiveKey="home">
-                {navItems.map(item => (
+            <Nav className="flex-column sidebar d-lg-flex navmenu">
+                {active && navItems.map(item => (
                     <Nav.Link
                         key={item.id}
                         as={Link}

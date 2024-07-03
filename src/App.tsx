@@ -3,7 +3,6 @@ import './App.scss';
 import './theme.scss';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './components/Home/Home';
-import Header from './Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import About from './components/About/About';
 import Resume from './components/Resume/Resume';
@@ -20,20 +19,10 @@ const App: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Simulate a loading delay
+    }, 4000); // Simulate a loading delay
 
     return () => clearTimeout(timer);
   }, []);
-
-
-  const sections = [
-    { id: 'home', label: 'Home Section' },
-    { id: 'profile', label: 'Profile Section' },
-    { id: 'documents', label: 'Documents Section' },
-    { id: 'gallery', label: 'Gallery Section' },
-    { id: 'servers', label: 'Servers Section' },
-    { id: 'messages', label: 'Messages Section' },
-  ];
 
   return (
     <div className="app">
