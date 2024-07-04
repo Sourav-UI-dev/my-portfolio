@@ -116,7 +116,7 @@ const Resume: React.FC = () => {
 
                             <div className="resume-item">
                                 <h4>Software Engineer</h4>
-                                <h5>2013 - 2017</h5>
+                                <h5>2017 - 2022</h5>
                                 <p>
                                     <em>Mindteck India Ltd., Kolkata, IN</em>
                                 </p>
