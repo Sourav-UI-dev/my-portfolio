@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="col-lg-8">
+                        <div className="col-lg-8" style={{ zIndex: 10}}>
                             <Form
                                 noValidate validated={validated} onSubmit={handleOnSubmit}
                                 className={'contact-email-form'}
@@ -187,7 +187,7 @@ const Contact: React.FC = () => {
                                     <div className="col-md-12 text-center">
                                         {!loading && status === 'error' && <div className="error-message">Something went wrong! Please try again later.</div>}
                                         {!loading && status === 'success' && <div className="sent-message">Your message has been sent. Thank you!</div>}
-                                        
+
                                         {loading && <button disabled><Spinner
                                             as="span"
                                             animation="grow"
