@@ -85,16 +85,45 @@ const Resume: React.FC = () => {
                                 <h4>Bachelor of Technology, Electronics & Communication Engineering</h4>
                                 <h5>2013 - 2017</h5>
                                 <p>
+                                    <em>Academy of Technology</em>
+                                </p>
+                                <p>
                                     <em>West Bengal University of Technology</em>
+                                </p>
+                            </div>
+
+                            <div className="resume-item">
+                                <h4>Higher Secondary</h4>
+                                <h5>2013</h5>
+                                <p>
+                                    <em>Burdwan Town School</em>
+                                </p>
+                                <p>
+                                    <em>West Bengal Council of Higher Secondary Education</em>
                                 </p>
                             </div>
                         </div>
 
                         <div className="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                             <h3 className="resume-title">Professional Experience</h3>
+
+                            <div className="resume-item">
+                                <h4>Senior Consultant</h4>
+                                <h5>2024 - Present</h5>
+                                <p>
+                                    <em>Capgemini, Kolkata, IN </em>
+                                </p>
+                                <ul>
+                                    <li>Collaborating different with teams memebers,
+                                        developers, and project managers to understand the structure, flow and processes.</li>
+                                    <li>Developing, updating differnt re-usable components using React which can be used in Sitecore
+                                        content management system to design site.</li>
+                                </ul>
+                            </div>
+
                             <div className="resume-item">
                                 <h4>Senior Associate</h4>
-                                <h5>2022 - Present</h5>
+                                <h5>2022 - 2024</h5>
                                 <p>
                                     <em>PWC, Kolkata, IN </em>
                                 </p>
