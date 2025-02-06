@@ -21,7 +21,7 @@ const Services: React.FC = () => {
                                 <div className="icon">
                                     <span className='sevice-icon'><LuMonitorSmartphone /></span>
                                 </div>
-                                <a href="service-details.html" className="stretched-link">
+                                <a className="stretched-link">
                                     <h3>Custom Web Development</h3>
                                 </a>
                                 <p>Whether you need a robust e-commerce platform, a dynamic content management system, or a sleek corporate website,high-performance hybrid mobile applications that provide a native-like experience across both Android and iOS platforms, I can create solutions that are scalable, secure, and user-friendly.</p>
@@ -33,7 +33,7 @@ const Services: React.FC = () => {
                                 <div className="icon">
                                     <span className='sevice-icon'><SiWebpack /></span>
                                 </div>
-                                <a href="service-details.html" className="stretched-link">
+                                <a className="stretched-link">
                                     <h3>Full Stack Development</h3>
                                 </a>
                                 <p>With expertise in both frontend and backend technologies, I deliver high-quality application that enhances user experience. Providing end-to-end solutions for your web projects. I ensure seamless integration between the client-side and server-side, resulting in a cohesive and efficient application.</p>
@@ -45,7 +45,7 @@ const Services: React.FC = () => {
                                 <div className="icon">
                                     <span className='sevice-icon'><SiFreelancer /></span>
                                 </div>
-                                <a href="service-details.html" className="stretched-link">
+                                <a className="stretched-link">
                                     <h3>Freelancing Services</h3>
                                 </a>
                                 <p> I offer flexible and reliable development services to meet your unique project needs. Whether you're a startup looking to build your first product, or an established business seeking additional development support, I can provide the expertise and dedication required to bring your vision to life.</p>

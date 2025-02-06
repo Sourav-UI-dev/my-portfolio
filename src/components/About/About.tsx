@@ -8,8 +8,8 @@ import { RiTeamLine } from 'react-icons/ri';
 const About: React.FC = () => {
 
     const stats = [
-        { icon: <BiSmile />, end: 5, label: 'Happy Clients' },
-        { icon: <PiSuitcaseSimple />, end: 6, label: 'Projects' },
+        { icon: <BiSmile />, end: 6, label: 'Happy Clients' },
+        { icon: <PiSuitcaseSimple />, end: 9, label: 'Projects' },
         { icon: <CiTimer />, end: 1463, label: 'Hours Of Support' },
         { icon: <RiTeamLine />, end: 20, label: 'Team Networks' },
     ];
@@ -89,7 +89,7 @@ const About: React.FC = () => {
                                 <div className="col-lg-6">
                                     <ul>
                                         <li><BiChevronRight color='#ff6b8b' /> <strong>Birthday:</strong> <span>26 Aug 1995</span></li>
-                                        <li><BiChevronRight color='#ff6b8b' /> <strong>Website:</strong> <span>www.example.com</span></li>
+                                        <li><BiChevronRight color='#ff6b8b' /> <strong>Website:</strong> <span>https://sourav-ghosh-95.vercel.app/</span></li>
                                         <li><BiChevronRight color='#ff6b8b' /> <strong>Phone:</strong> <span>+91 7602313900</span></li>
                                         <li><BiChevronRight color='#ff6b8b' /> <strong>City:</strong> <span>Kolkata,WB India</span></li>
                                     </ul>
